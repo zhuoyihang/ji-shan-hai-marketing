@@ -30,26 +30,49 @@
     position: relative;
   }
 
-  /* 水印：45°倾斜，固定铺满 */
-  body::after {
-    content: '成都弯道超车传媒有限公司 \00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0';
+  /* 水印：45度倾斜，固定铺满 */
+  .watermark {
     position: fixed;
     top: -300px;
     left: -300px;
-    width: 700vw;
-    height: 700vh;
-    font-size: 22px;
-    font-weight: 700;
-    color: rgba(180, 160, 110, 0.05);
-    white-space: normal;
-    line-height: 70px;
+    width: 800vw;
+    height: 800vh;
     pointer-events: none;
     z-index: 0;
     transform: rotate(45deg);
+    background-image: url("data:image/svg+xml;base64,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");
+    background-repeat: repeat;
+  }
+  /* ===== COVER ===== */
+  /* 水印：45度倾斜，固定铺满 */
+  .watermark-wrap {
+    position: fixed;
+    top: -200px;
+    left: -200px;
+    width: 700vw;
+    height: 700vh;
+    pointer-events: none;
+    z-index: 0;
+    transform: rotate(45deg);
+  }
+  .watermark-row {
+    display: flex;
+    flex-wrap: wrap;
+    height: 60px;
+    align-content: flex-start;
+  }
+  .watermark-row span {
+    width: 200px;
+    height: 60px;
+    font-size: 17px;
+    font-weight: 700;
+    color: rgba(180,160,110,0.055);
+    white-space: nowrap;
+    line-height: 60px;
     display: block;
+    flex-shrink: 0;
   }
 
-  /* ===== COVER ===== */
   .cover {
     min-height: 100vh;
     width: 100vw;
@@ -1057,6 +1080,23 @@
 </style>
 </head>
 <body>
+<div class="watermark-wrap">
+  <div class="watermark-row"><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span></div>
+  <div class="watermark-row"><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span></div>
+  <div class="watermark-row"><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span></div>
+  <div class="watermark-row"><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span></div>
+  <div class="watermark-row"><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span></div>
+  <div class="watermark-row"><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span></div>
+  <div class="watermark-row"><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span></div>
+  <div class="watermark-row"><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span></div>
+  <div class="watermark-row"><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span></div>
+  <div class="watermark-row"><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span></div>
+  <div class="watermark-row"><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span></div>
+  <div class="watermark-row"><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span></div>
+  <div class="watermark-row"><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span></div>
+  <div class="watermark-row"><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span></div>
+  <div class="watermark-row"><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span><span>成都弯道超车传媒有限公司</span></div>
+</div>
 <!-- ===== COVER ===== -->
 <div class="cover">
   <div class="cover-badge">New Store Opening · Full-Channel Marketing Plan</div>
