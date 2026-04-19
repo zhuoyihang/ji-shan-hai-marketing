@@ -26,36 +26,24 @@
     line-height: 1.7;
     width: 100vw;
     overflow-x: hidden;
-    position: relative;
   }
 
-  /* body::before 做背景（最底层） */
+  /* 用 SVG data-URI 做水印背景，最可靠 */
   body::before {
     content: '';
     position: fixed;
     inset: 0;
-    background: var(--ink);
-    z-index: -2;
+    background-color: #1a2e1a;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' transform='rotate(-45 200 200)'%3E%3Ctext x='0' y='40' font-size='20' font-weight='bold' fill='%23c8a96e' fill-opacity='0.1' font-family='PingFang SC, Microsoft YaHei' dominant-baseline='middle'%3E成都弯道超车传媒有限公司%3C/text%3E%3Ctext x='0' y='120' font-size='20' font-weight='bold' fill='%23c8a96e' fill-opacity='0.1' font-family='PingFang SC, Microsoft YaHei' dominant-baseline='middle'%3E成都弯道超车传媒有限公司%3C/text%3E%3Ctext x='0' y='200' font-size='20' font-weight='bold' fill='%23c8a96e' fill-opacity='0.1' font-family='PingFang SC, Microsoft YaHei' dominant-baseline='middle'%3E成都弯道超车传媒有限公司%3C/text%3E%3Ctext x='0' y='280' font-size='20' font-weight='bold' fill='%23c8a96e' fill-opacity='0.1' font-family='PingFang SC, Microsoft YaHei' dominant-baseline='middle'%3E成都弯道超车传媒有限公司%3C/text%3E%3Ctext x='0' y='360' font-size='20' font-weight='bold' fill='%23c8a96e' fill-opacity='0.1' font-family='PingFang SC, Microsoft YaHei' dominant-baseline='middle'%3E成都弯道超车传媒有限公司%3C/text%3E%3C/svg%3E");
+    background-size: 400px 400px;
+    background-repeat: repeat;
+    z-index: -1;
+    pointer-events: none;
   }
 
-  /* body::after 做水印（背景之上、内容之下） */
-  body::after {
-    content: '成都弯道超车传媒有限公司\A 成都弯道超车传媒有限公司\A 成都弯道超车传媒有限公司\A 成都弯道超车传媒有限公司\A 成都弯道超车传媒有限公司\A 成都弯道超车传媒有限公司\A 成都弯道超车传媒有限公司\A 成都弯道超车传媒有限公司\A 成都弯道超车传媒有限公司\A 成都弯道超车传媒有限公司\A 成都弯道超车传媒有限公司\A 成都弯道超车传媒有限公司\A 成都弯道超车传媒有限公司\A 成都弯道超车传媒有限公司\A 成都弯道超车传媒有限公司\A 成都弯道超车传媒有限公司\A 成都弯道超车传媒有限公司\A 成都弯道超车传媒有限公司\A 成都弯道超车传媒有限公司\A 成都弯道超车传媒有限公司';
-    white-space: pre-wrap;
-    position: fixed;
-    top: -100px;
-    left: -100px;
-    width: 600vw;
-    height: 600vh;
-    font-size: 24px;
-    font-weight: 700;
-    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
-    color: rgba(200,169,110,0.12);
-    line-height: 80px;
-    word-spacing: 100px;
-    transform: rotate(45deg);
-    pointer-events: none;
-    z-index: -1;
+  /* 覆盖层：给所有 section 盖上背景色，透出水印 */
+  .cover, .section {
+    background-color: rgba(26, 46, 26, 0.92) !important;
   }
 
   .cover {
