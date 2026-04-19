@@ -27,11 +27,12 @@
     line-height: 1.7;
     width: 100vw;
     overflow-x: hidden;
+    position: relative;
   }
 
   /* 水印：45°倾斜，固定铺满 */
-  body::before {
-    content: '成都弯道超车传媒有限公司';
+  body::after {
+    content: '成都弯道超车传媒有限公司 \00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0';
     position: fixed;
     top: -300px;
     left: -300px;
@@ -41,11 +42,11 @@
     font-weight: 700;
     color: rgba(180, 160, 110, 0.05);
     white-space: normal;
-    word-spacing: 50px;
     line-height: 70px;
     pointer-events: none;
     z-index: 0;
     transform: rotate(45deg);
+    display: block;
   }
 
   /* ===== COVER ===== */
