@@ -1056,15 +1056,12 @@
 
 
 
-  /* ===== TAB SWITCH ===== */
-  .tab-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; background: rgba(26,46,26,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(200,169,110,0.2); }
-  .tab-btn { flex: 1; padding: 16px 20px; background: none; border: none; color: rgba(232,237,232,0.5); font-size: 15px; font-weight: 600; letter-spacing: 2px; cursor: pointer; transition: all 0.3s; border-bottom: 3px solid transparent; font-family: inherit; }
-  .tab-btn:hover { color: rgba(232,237,232,0.8); }
-  .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
-  body { padding-top: 57px; }
-  #page-marketing, #page-training { display: none; }
-  body.show-main #page-marketing { display: block; }
-  body.show-training #page-training { display: block; }
+
+
+  /* 移除 tab 切换，内容区块默认显示 */
+  #page-marketing { display: block; }
+
+
 
   /* ===== TOC目录样式 ===== */
   .toc-grid {
@@ -2225,35 +2222,7 @@
   </div>
 </div>
 
-<!-- ===== Fixed Tab Bar ===== -->
-<div class="tab-bar">
-  <button class="tab-btn active" data-tab="main" onclick='switchTab("main")'>
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-    营销方案
-  </button>
-  <button class="tab-btn" data-tab="training" onclick='switchTab("training")'>
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-    新媒体培训手册
-  </button>
-</div>
-
-<script>
-function switchTab(tab) {
-  var btns = document.querySelectorAll(".tab-btn");
-  for (var i = 0; i < btns.length; i++) {
-    btns[i].classList.toggle("active", btns[i].dataset.tab === tab);
-  }
-  document.body.className = "show-" + tab;
-  try { sessionStorage.setItem("activeTab", tab); } catch(e) {}
-}
-var saved = null;
-try { saved = sessionStorage.getItem("activeTab"); } catch(e) {}
-if (saved) switchTab(saved);
-</script>
-
-
-</div>
-
+<!-- ===== 底部信息 ===== -->
 <div style="text-align:center;padding:32px 24px;color:rgba(255,255,255,0.35);
   font-size:12px;border-top:1px solid rgba(200,169,110,0.1);">
   既山海 · 新店开业全渠道营销方案 · 2026<br>
